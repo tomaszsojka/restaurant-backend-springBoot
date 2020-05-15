@@ -19,6 +19,14 @@ public class FakeDishDataAccessService implements DishDao{
         DB.add(new Dish(UUID.randomUUID(),"Jajko sadzone", "z jajek kurzych", 7, "breakfast"));
         DB.add(new Dish(UUID.randomUUID(),"Omlet", "z jajek kurzych", 9, "breakfast"));
         DB.add(new Dish(UUID.randomUUID(), "Jajko na twardo", "z jajek kurzych", 10, "breakfast"));
+
+        DB.add(new Dish(UUID.randomUUID(),"Shrimps", "sea fruit", 8, "appetizers"));
+        DB.add(new Dish(UUID.randomUUID(),"Vanilla ice cream", "made from ice xd", 7, "appetizers"));
+        DB.add(new Dish(UUID.randomUUID(), "Pizza", "with cheese", 9, "appetizers"));
+
+        DB.add(new Dish(UUID.randomUUID(),"Kotlet schabowy", "z mizerią i solą", 8, "dinner"));
+        DB.add(new Dish(UUID.randomUUID(),"Kamień", "z wodą", 7, "dinner"));
+        DB.add(new Dish(UUID.randomUUID(), "Pizza", "z serem", 9, "dinner"));
     }
 
     @Override
