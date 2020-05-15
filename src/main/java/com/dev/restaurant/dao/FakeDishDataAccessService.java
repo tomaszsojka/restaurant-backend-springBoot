@@ -15,15 +15,15 @@ public class FakeDishDataAccessService implements DishDao{
     //TODO delete it when db is connected
     public FakeDishDataAccessService() {
         //sniadanka
-        DB.add(new Dish(UUID.randomUUID(), "Jajecznica", "Z jajek kurzych", 8));
-        DB.add(new Dish(UUID.randomUUID(),"Jajko sadzone", "z jajek kurzych", 7));
-        DB.add(new Dish(UUID.randomUUID(),"Omlet", "z jajek kurzych", 9));
-        DB.add(new Dish(UUID.randomUUID(), "Jajko na twardo", "z jajek kurzych", 10));
+        DB.add(new Dish(UUID.randomUUID(), "Jajecznica", "Z jajek kurzych", 8, "breakfast"));
+        DB.add(new Dish(UUID.randomUUID(),"Jajko sadzone", "z jajek kurzych", 7, "breakfast"));
+        DB.add(new Dish(UUID.randomUUID(),"Omlet", "z jajek kurzych", 9, "breakfast"));
+        DB.add(new Dish(UUID.randomUUID(), "Jajko na twardo", "z jajek kurzych", 10, "breakfast"));
     }
 
     @Override
     public int insertDish(UUID id, Dish dish) {
-        DB.add(new Dish(id, dish.getName(), dish.getDescription(), dish.getPrice()));
+        DB.add(new Dish(id, dish.getName(), dish.getDescription(), dish.getPrice(), dish.getType()));
         return 1; //always ok
     }
 

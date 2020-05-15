@@ -9,15 +9,17 @@ public class Dish {
     private final String name;
     private final String description;
     private final int price;
+    private final String type;
 
     public Dish(@JsonProperty("id") UUID id,
                 @JsonProperty("name") String name,
                 @JsonProperty("description") String description,
-                @JsonProperty("price") int price) {
+                @JsonProperty("price") int price, String type) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.type = type;
     }
 
     public UUID getId() {
@@ -34,5 +36,9 @@ public class Dish {
 
     public int getPrice() {
         return price;
+    }
+
+    public String getType() {
+        return type;
     }
 }
