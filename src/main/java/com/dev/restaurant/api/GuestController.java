@@ -33,8 +33,14 @@ public class GuestController {
         return guestService.getAllDishes();
     }
 
+    /*
     @PostMapping
     public void addUser(@RequestBody User user) {
         guestService.addUser(user);
+    }
+     */
+    @PostMapping
+    public void addClient(@RequestBody User user) {
+        guestService.addClient(user);
     }
 }

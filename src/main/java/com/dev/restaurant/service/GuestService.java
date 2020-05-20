@@ -32,8 +32,13 @@ public class GuestService {
         return dishDao.selectAllDishes();
     }
 
-    //TODO change to addClient (guest cannot add chef or waiter or manager)
+    //TODO delete (guest cannot add chef or waiter or manager)
     public int addUser(User user) {
         return userDao.insertUser(user);
+    }
+
+    //adding user of type "client", with random id
+    public int addClient( User user) {
+        return userDao.insertUser("client", user);
     }
 }
