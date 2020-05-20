@@ -14,7 +14,8 @@ public class Dish {
     public Dish(@JsonProperty("id") UUID id,
                 @JsonProperty("name") String name,
                 @JsonProperty("description") String description,
-                @JsonProperty("price") int price, String type) {
+                @JsonProperty("price") int price,
+                @JsonProperty("type") String type) {
         this.id = id;
         this.name = name;
         this.description = description;
