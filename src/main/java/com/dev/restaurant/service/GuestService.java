@@ -37,6 +37,11 @@ public class GuestService {
         return userDao.insertUser(user);
     }
 
+    //TODO delete (guest cannot see all users)
+    public List<User> getAllUsers() {
+        return userDao.selectAllUsers();
+    }
+
     //adding user of type "client", with random id
     public int addClient( User user) {
         return userDao.insertUser("client", user);

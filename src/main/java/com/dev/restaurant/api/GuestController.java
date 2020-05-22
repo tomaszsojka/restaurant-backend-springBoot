@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 //TODO change to "api/v1/guest", change argument near getmapping to "dish", post to "client"
-@RequestMapping("api/v1/dish")
+@RequestMapping("api/v1/guest")
 @RestController
 public class GuestController {
 
@@ -28,7 +28,7 @@ public class GuestController {
     }
      */
 
-    @GetMapping
+    @GetMapping("dish")
     public List<Dish> getAllDishes() {
         return guestService.getAllDishes();
     }
@@ -39,7 +39,13 @@ public class GuestController {
         guestService.addUser(user);
     }
      */
-    @PostMapping
+    //TODO delete
+    @GetMapping("user")
+    public List<User> getAllUsers() {
+        return guestService.getAllUsers();
+    }
+
+    @PostMapping("client")
     public void addClient(@RequestBody User user) {
         guestService.addClient(user);
     }
