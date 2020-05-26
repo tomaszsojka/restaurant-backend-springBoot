@@ -1,6 +1,7 @@
 package com.dev.restaurant.api;
 
 import com.dev.restaurant.model.Dish;
+import com.dev.restaurant.model.Order;
 import com.dev.restaurant.model.User;
 import com.dev.restaurant.service.GuestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +50,12 @@ public class GuestController {
     public void addClient(@RequestBody User user) {
         guestService.addClient(user);
     }
+
+    @PostMapping("order")
+    public void addOrder(@RequestBody Order order) {guestService.addOrder(order);}
+
+    @GetMapping("order")
+    public List<Order> getAllOrders() { return guestService.getAllOrders();}
+
+
 }

@@ -1,8 +1,10 @@
 package com.dev.restaurant.service;
 
 import com.dev.restaurant.dao.DishDao;
+import com.dev.restaurant.dao.OrderDao;
 import com.dev.restaurant.dao.UserDao;
 import com.dev.restaurant.model.Dish;
+import com.dev.restaurant.model.Order;
 import com.dev.restaurant.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,11 +17,13 @@ public class GuestService {
 
     private final DishDao dishDao;
     private final UserDao userDao;
+    private final OrderDao orderDao;
 
     @Autowired
-    public GuestService(@Qualifier("fakeDishDao") DishDao dishDao,@Qualifier("fakeUserDao") UserDao userDao) {
+    public GuestService(@Qualifier("fakeDishDao") DishDao dishDao, @Qualifier("fakeUserDao") UserDao userDao, @Qualifier("fakeOrderDao")OrderDao orderDao) {
         this.dishDao = dishDao;
         this.userDao = userDao;
+        this.orderDao = orderDao;
     }
 
     /* //Guest doesn't have access to add dish
@@ -45,5 +49,11 @@ public class GuestService {
     //adding user of type "client", with random id
     public int addClient( User user) {
         return userDao.insertUser("client", user);
+    }
+
+    public int addOrder(Order order) {return orderDao.insertOrder(order);}
+
+    public List<Order> getAllOrders(){
+        return orderDao.selectAllOrders();
     }
 }
