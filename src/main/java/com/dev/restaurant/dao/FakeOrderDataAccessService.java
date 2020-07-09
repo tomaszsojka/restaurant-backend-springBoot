@@ -11,8 +11,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository("fakeOrderDao")
-public class FakeOrderDataAccessService implements OrderDao {
+public class FakeOrderDataAccessService /*implements OrderDao*/ {
 
+    /*
     private static List<Order> DB = new ArrayList<>();
 
     @Override
@@ -25,5 +26,7 @@ public class FakeOrderDataAccessService implements OrderDao {
     public List<Order> selectAllOrders() {
         return DB;
     }
+
+     */
 
 }

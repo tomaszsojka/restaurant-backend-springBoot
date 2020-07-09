@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository("fakeDishDao")
-public class FakeDishDataAccessService implements DishDao{
-
+public class FakeDishDataAccessService /*implements DishDao*/{
+/*
     private static List<Dish> DB = new ArrayList<>();
 
     //TODO delete it when db is connected
     public FakeDishDataAccessService() {
         //sniadanka
-        DB.add(new Dish(UUID.randomUUID(), "Jajecznica", "Z jajek kurzych", 8, "breakfast"));
-        DB.add(new Dish(UUID.randomUUID(),"Jajko sadzone", "z jajek kurzych", 7, "breakfast"));
-        DB.add(new Dish(UUID.randomUUID(),"Omlet", "z jajek kurzych", 9, "breakfast"));
-        DB.add(new Dish(UUID.randomUUID(), "Jajko na twardo", "z jajek kurzych", 10, "breakfast"));
+        DB.add(new Dish(UUID.randomUUID(), "Scrambled eggs", "hen eggs", 8, "breakfast"));
+        DB.add(new Dish(UUID.randomUUID(),"Fried eggs", "hen eggs", 7, "breakfast"));
+        DB.add(new Dish(UUID.randomUUID(),"Omelet", "hen eggs", 9, "breakfast"));
+        DB.add(new Dish(UUID.randomUUID(), "Hard-boiled eggs", "hen eggs", 10, "breakfast"));
 
         DB.add(new Dish(UUID.randomUUID(),"Shrimps", "sea fruit", 8, "appetizers"));
         DB.add(new Dish(UUID.randomUUID(),"Vanilla ice cream", "made from ice xd", 7, "appetizers"));
@@ -39,4 +39,5 @@ public class FakeDishDataAccessService implements DishDao{
     public List<Dish> selectAllDishes() {
         return DB;
     }
+    */
 }

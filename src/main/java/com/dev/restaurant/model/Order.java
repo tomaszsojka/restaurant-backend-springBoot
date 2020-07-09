@@ -2,33 +2,42 @@ package com.dev.restaurant.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import lombok.Data;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
+@Data
+@Entity
+@Table(name = "orders")
 public class Order {
-    private final UUID id;
-    private final String name;
-    private final Integer price;
-    private final Integer quantity;
-    private final Date date;
-    private final Boolean prepared;
-    private final Boolean paid;
-    private final String mealID;
-    private final Integer userID;
 
-    public Order(@JsonProperty("id") UUID id,
-                @JsonProperty("name") String name,
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String name;
+    private Integer price;
+    private Integer quantity;
+    private Date date;
+    private Boolean prepared;
+    private Boolean paid;
+    private long mealID;
+    private long userID;
+
+    public Order() {
+
+    }
+
+    public Order(@JsonProperty("name") String name,
                 @JsonProperty("price") Integer price,
                  @JsonProperty("quantity") Integer quantity,
                 @JsonProperty("date") Date date,
                  @JsonProperty("prepared") Boolean prepared,
                  @JsonProperty("paid") Boolean paid,
-                 @JsonProperty("mealID") String mealID,
-                 @JsonProperty("userID") Integer userID
-
+                 @JsonProperty("mealID") long mealID,
+                 @JsonProperty("userID") long userID
                 ) {
-        this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -39,7 +48,7 @@ public class Order {
         this.userID = userID;
     }
 
-    public UUID getId() {
+    public long getId() {
         return id;
     }
 
@@ -67,11 +76,11 @@ public class Order {
         return paid;
     }
 
-    public String getMealID(){
+    public long getMealID(){
         return mealID;
     }
 
-    public Integer getUserID(){
+    public long getUserID(){
         return userID;
     }
 

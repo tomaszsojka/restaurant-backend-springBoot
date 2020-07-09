@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository("fakeUserDao")
-public class FakeUserDataAccessService implements UserDao {
-
+public class FakeUserDataAccessService /*implements UserDao*/ {
+/*
     private static List<User> DB = new ArrayList<>();
 
     @Override
@@ -22,4 +22,5 @@ public class FakeUserDataAccessService implements UserDao {
     public List<User> selectAllUsers() {
         return DB;
     }
+ */
 }

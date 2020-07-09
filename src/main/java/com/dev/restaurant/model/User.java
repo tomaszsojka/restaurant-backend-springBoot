@@ -1,30 +1,41 @@
 package com.dev.restaurant.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
+import javax.persistence.*;
 import java.util.UUID;
 
+@Data
+@Entity
+@Table(name = "users")
 public class User {
 
-    private final UUID id;
-    private final String phoneNumber;
-    private final String email;
-    private final String password;
-    private final String type;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String phoneNumber;
+    private String email;
+    private String password;
+    private String type;
 
-    public User(@JsonProperty("id") UUID id,
+    public User() {
+
+    }
+
+    public User(/*@JsonProperty("id") UUID id,*/
                 @JsonProperty("phoneNumber") String phoneNumber,
                 @JsonProperty("email") String email,
                 @JsonProperty("password") String password,
                 @JsonProperty("type") String type) {
-        this.id = id;
+        //this.id = id;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
         this.type = type;
     }
 
-    public UUID getId() {
+    public long getId() {
         return id;
     }
 
