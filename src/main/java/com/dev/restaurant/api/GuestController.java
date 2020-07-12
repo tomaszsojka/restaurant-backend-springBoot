@@ -47,7 +47,7 @@ public class GuestController {
         return guestService.getAllUsers();
     }
 
-    @PostMapping("client")
+    @PostMapping("register")
     public ResponseEntity<?> addClient(@RequestBody User user) {
         User doUserExist = guestService.findUserByEmail(user.getEmail());
 
@@ -57,7 +57,7 @@ public class GuestController {
             return ResponseEntity.status(401).build();
         }else {
             guestService.addClient(user);
-            return ResponseEntity.ok('C');
+            return ResponseEntity.ok('1');
         }
     }
 
