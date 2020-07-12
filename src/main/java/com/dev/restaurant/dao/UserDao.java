@@ -2,12 +2,15 @@ package com.dev.restaurant.dao;
 
 import com.dev.restaurant.model.User;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
 
+@Repository
 public interface UserDao extends CrudRepository<User, Integer> {
 
+
+    Optional<User> findByEmail(String email);
 /*        int insertUser(UUID id, String type, User user);
     //insert with random id, but type set in service
     default int insertUser(String type, User user) {

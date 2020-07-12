@@ -5,6 +5,7 @@ import com.dev.restaurant.model.Order;
 import com.dev.restaurant.model.User;
 import com.dev.restaurant.service.GuestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -47,8 +48,17 @@ public class GuestController {
     }
 
     @PostMapping("client")
-    public void addClient(@RequestBody User user) {
-        guestService.addClient(user);
+    public ResponseEntity<?> addClient(@RequestBody User user) {
+        User doUserExist = guestService.findUserByEmail(user.getEmail());
+
+        if(doUserExist != null) {
+            //TODO error
+            System.out.println("exists");
+            return ResponseEntity.status(401).build();
+        }else {
+            guestService.addClient(user);
+            return ResponseEntity.ok('C');
+        }
     }
 
     @PostMapping("order")

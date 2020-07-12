@@ -55,6 +55,10 @@ public class GuestService {
         return users;
     }
 
+    public User findUserByEmail(String email) {
+        return userDao.findByEmail(email).orElse(null);
+    }
+
     //adding user of type "client"
     public int addClient( User user) {
         user.setType("client");
