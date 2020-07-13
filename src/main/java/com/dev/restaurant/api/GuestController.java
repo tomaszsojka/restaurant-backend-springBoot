@@ -1,5 +1,6 @@
 package com.dev.restaurant.api;
 
+import com.dev.restaurant.DTO.AuthenticationResponse;
 import com.dev.restaurant.model.Dish;
 import com.dev.restaurant.model.Order;
 import com.dev.restaurant.model.User;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//TODO change to "api/v1/guest", change argument near getmapping to "dish", post to "client"
 @RequestMapping("api/v1/guest")
 @RestController
 public class GuestController {
@@ -59,6 +59,28 @@ public class GuestController {
             guestService.addClient(user);
             return ResponseEntity.ok('1');
         }
+    }
+
+    @PostMapping("login")
+    public ResponseEntity<?> login(@RequestBody User user) {
+        System.out.println(user.getEmail() + " " + user.getPassword());
+        User doUserExists = guestService.findUserByEmail(user.getEmail());
+
+        char role;
+
+        if (doUserExists.getType().equals("client"))
+            role = 'C';
+        else if (doUserExists.getType().equals("chef"))
+            role = 'H';
+        else if (doUserExists.getType().equals("admin"))
+            role = 'A';
+        else {
+            role = 'n';
+            ResponseEntity.status(401).build();
+        }
+
+        //TODO change to response (token, role)
+        return ResponseEntity.ok(new AuthenticationResponse(user.getEmail(), role));
     }
 
     @PostMapping("order")
