@@ -12,4 +12,5 @@ INSERT INTO dishes (name, description, price, type ) VALUES('Sand', 'everywhere'
 
 INSERT INTO users (phone_number, email, password, type ) VALUES(420420420, 'mariusz.pudzianowski@pudzian.owski', 'byllepszywkulach', 'admin');
 INSERT INTO users (phone_number, email, password, type ) VALUES(213721372, 'robert.maklowicz@mak.lowicz', 'eeeeeeeee', 'chef');
+INSERT INTO users (phone_number, email, password, type ) VALUES(897356273, 'kelner@kelner.kelner', 'kelner', 'waiter');
 INSERT INTO users (phone_number, email, password, type ) VALUES(123456789, 'aaa@aaa.com', 'aaa', 'client');
