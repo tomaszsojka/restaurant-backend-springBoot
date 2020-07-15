@@ -21,7 +21,7 @@ public class GuestService {
     private final OrderDao orderDao;
 
     @Autowired
-    public GuestService( DishDao dishDao, UserDao userDao, @Qualifier("fakeOrderDao")OrderDao orderDao) {
+    public GuestService( DishDao dishDao, UserDao userDao, OrderDao orderDao) {
         this.dishDao = dishDao;
         this.userDao = userDao;
         this.orderDao = orderDao;
