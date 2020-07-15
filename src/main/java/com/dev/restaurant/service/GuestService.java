@@ -61,7 +61,7 @@ public class GuestService {
 
     //adding user of type "client"
     public int addClient( User user) {
-        user.setType("client");
+        user.setRole("client");
         userDao.save(user);
         //TODO add exceptions, return result
         return 1;

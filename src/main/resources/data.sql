@@ -10,9 +10,9 @@ INSERT INTO dishes (name, description, price, type ) VALUES('Pork chop', 'with s
 INSERT INTO dishes (name, description, price, type ) VALUES('Stone', 'with with water', 1000, 'dinner');
 INSERT INTO dishes (name, description, price, type ) VALUES('Sand', 'everywhere', 1, 'dinner');
 
-INSERT INTO users (phone_number, email, password, type ) VALUES(420420420, 'mariusz.pudzianowski@pudzian.owski', 'byllepszywkulach', 'admin');
-INSERT INTO users (phone_number, email, password, type ) VALUES(213721372, 'maklowicz@mak.lowicz', 'eeeeeeeee', 'chef');
-INSERT INTO users (phone_number, email, password, type ) VALUES(986724572, 'pascal@pas.cal', 'pascal', 'chef');
-INSERT INTO users (phone_number, email, password, type ) VALUES(897356273, 'kelner@kelner.kelner', 'kelner', 'waiter');
-INSERT INTO users (phone_number, email, password, type ) VALUES(897356273, 'rafal@brzo.zowski', 'brzo', 'waiter');
-INSERT INTO users (phone_number, email, password, type ) VALUES(123456789, 'aaa@aaa.com', 'aaa', 'client');
+INSERT INTO users (phone_number, email, password, role ) VALUES(420420420, 'admin@admin.com', 'admin', 'admin');
+INSERT INTO users (phone_number, email, password, role ) VALUES(213721372, 'maklowicz@mak.lowicz', 'eeeeeeeee', 'chef');
+INSERT INTO users (phone_number, email, password, role ) VALUES(986724572, 'pascal@pas.cal', 'pascal', 'chef');
+INSERT INTO users (phone_number, email, password, role ) VALUES(897356273, 'kelner@kelner.kelner', 'kelner', 'waiter');
+INSERT INTO users (phone_number, email, password, role ) VALUES(897356273, 'rafal@brzo.zowski', 'brzo', 'waiter');
+INSERT INTO users (phone_number, email, password, role ) VALUES(123456789, 'aaa@aaa.com', 'aaa', 'client');

@@ -33,4 +33,32 @@ public class AdminController {
     public List<User> getAllUsers() {
         return adminService.getAllEmployees();
     }
+
+    @PostMapping("add_chef")
+    public ResponseEntity<?> addChef(@RequestBody User user) {
+        User doUserExist = adminService.findUserByEmail(user.getEmail());
+
+        if(doUserExist != null) {
+            //TODO error
+            System.out.println("exists");
+            return ResponseEntity.status(401).build();
+        }else {
+            adminService.addChef(user);
+            return ResponseEntity.ok('1');
+        }
+    }
+
+    @PostMapping("add_waiter")
+    public ResponseEntity<?> addWaiter(@RequestBody User user) {
+        User doUserExist = adminService.findUserByEmail(user.getEmail());
+
+        if(doUserExist != null) {
+            //TODO error
+            System.out.println("exists");
+            return ResponseEntity.status(401).build();
+        }else {
+            adminService.addWaiter(user);
+            return ResponseEntity.ok('1');
+        }
+    }
 }

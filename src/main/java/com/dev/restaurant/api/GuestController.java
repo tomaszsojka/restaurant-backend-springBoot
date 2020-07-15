@@ -68,11 +68,11 @@ public class GuestController {
 
         char role;
 
-        if (doUserExists.getType().equals("client"))
+        if (doUserExists.getRole().equals("client"))
             role = 'C';
-        else if (doUserExists.getType().equals("chef"))
+        else if (doUserExists.getRole().equals("chef"))
             role = 'H';
-        else if (doUserExists.getType().equals("admin"))
+        else if (doUserExists.getRole().equals("admin"))
             role = 'A';
         else {
             role = 'n';

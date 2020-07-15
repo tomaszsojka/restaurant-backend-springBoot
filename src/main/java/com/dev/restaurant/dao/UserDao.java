@@ -13,7 +13,7 @@ public interface UserDao extends CrudRepository<User, Integer> {
 
 
     Optional<User> findByEmail(String email);
-    List<User> findAllByType(String type);
+    List<User> findAllByRole(String role);
     //Iterable<User> findAllByType(String type);
 /*        int insertUser(UUID id, String type, User user);
     //insert with random id, but type set in service

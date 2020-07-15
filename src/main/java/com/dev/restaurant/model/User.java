@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Data
 @Entity
@@ -17,7 +16,7 @@ public class User {
     private String phoneNumber;
     private String email;
     private String password;
-    private String type;
+    private String role;
 
     public User() {
 
@@ -27,12 +26,12 @@ public class User {
                 @JsonProperty("phoneNumber") String phoneNumber,
                 @JsonProperty("email") String email,
                 @JsonProperty("password") String password,
-                @JsonProperty("type") String type) {
+                @JsonProperty("role") String role) {
         //this.id = id;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
-        this.type = type;
+        this.role = role;
     }
 
     public long getId() {
@@ -51,7 +50,7 @@ public class User {
         return password;
     }
 
-    public String getType() {
-        return type;
+    public String getRole() {
+        return role;
     }
 }

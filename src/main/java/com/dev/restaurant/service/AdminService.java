@@ -4,7 +4,6 @@ import com.dev.restaurant.dao.DishDao;
 import com.dev.restaurant.dao.OrderDao;
 import com.dev.restaurant.dao.UserDao;
 import com.dev.restaurant.model.Dish;
-import com.dev.restaurant.model.Order;
 import com.dev.restaurant.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -37,8 +36,8 @@ public class AdminService {
     public List<User> getAllEmployees() {
 
         List<User> users = new ArrayList<>();
-        users.addAll(userDao.findAllByType("chef"));
-        users.addAll(userDao.findAllByType("waiter"));
+        users.addAll(userDao.findAllByRole("chef"));
+        users.addAll(userDao.findAllByRole("waiter"));
         System.out.println(users);
 
         //userDao.findAll().iterator().forEachRemaining(users::add);
@@ -49,6 +48,20 @@ public class AdminService {
 
     public User findUserByEmail(String email) {
         return userDao.findByEmail(email).orElse(null);
+    }
+
+    public int addChef( User user) {
+        user.setRole("chef");
+        userDao.save(user);
+        //TODO add exceptions, return result
+        return 1;
+    }
+
+    public int addWaiter( User user) {
+        user.setRole("waiter");
+        userDao.save(user);
+        //TODO add exceptions, return result
+        return 1;
     }
 }
 
