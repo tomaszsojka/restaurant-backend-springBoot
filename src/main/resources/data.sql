@@ -12,7 +12,7 @@ INSERT INTO dishes (name, description, price, type ) VALUES('Sand', 'everywhere'
 
 INSERT INTO users (phone_number, email, password, role ) VALUES(420420420, 'admin@admin.com', 'admin', 'admin');
 INSERT INTO users (phone_number, email, password, role ) VALUES(213721372, 'maklowicz@mak.lowicz', 'eeeeeeeee', 'chef');
-INSERT INTO users (phone_number, email, password, role ) VALUES(986724572, 'pascal@pas.cal', 'pascal', 'chef');
-INSERT INTO users (phone_number, email, password, role ) VALUES(897356273, 'kelner@kelner.kelner', 'kelner', 'waiter');
+INSERT INTO users (phone_number, email, password, role ) VALUES(986724572, 'ccc@ccc.com', 'ccc', 'chef');
+INSERT INTO users (phone_number, email, password, role ) VALUES(897356273, 'kkk@kkk.kkk', 'kkk', 'waiter');
 INSERT INTO users (phone_number, email, password, role ) VALUES(897356273, 'rafal@brzo.zowski', 'brzo', 'waiter');
 INSERT INTO users (phone_number, email, password, role ) VALUES(123456789, 'aaa@aaa.com', 'aaa', 'client');
