@@ -72,6 +72,8 @@ public class GuestController {
             role = 'C';
         else if (doUserExists.getRole().equals("chef"))
             role = 'H';
+        else if (doUserExists.getRole().equals("waiter"))
+            role = 'W';
         else if (doUserExists.getRole().equals("admin"))
             role = 'A';
         else {
