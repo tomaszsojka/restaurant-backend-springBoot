@@ -63,7 +63,6 @@ public class GuestController {
 
     @PostMapping("login")
     public ResponseEntity<?> login(@RequestBody User user) {
-        System.out.println(user.getEmail() + " " + user.getPassword());
         User doUserExists = guestService.findUserByEmail(user.getEmail());
 
         char role;
@@ -82,7 +81,7 @@ public class GuestController {
         }
 
         //TODO change to response (token, role)
-        return ResponseEntity.ok(new AuthenticationResponse(user.getEmail(), role));
+        return ResponseEntity.ok(new AuthenticationResponse(doUserExists.getEmail(), doUserExists.getPhoneNumber(), role));
     }
 
     @PostMapping("order")
