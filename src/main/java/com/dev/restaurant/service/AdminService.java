@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.net.SocketOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AdminService {
@@ -62,6 +64,14 @@ public class AdminService {
         userDao.save(user);
         //TODO add exceptions, return result
         return 1;
+    }
+
+    //TODO change this !!!!
+    public void deleteEmployee(int id) {
+        System.out.println(id);
+        Optional<User> doUserExists = userDao.findById(id);
+        doUserExists
+        userDao.delete(user);
     }
 }
 
