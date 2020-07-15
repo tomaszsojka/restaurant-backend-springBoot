@@ -23,7 +23,7 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @GetMapping("dish")
+    @GetMapping("list_dishes")
     public List<Dish> getAllDishes() {
         return adminService.getAllDishes();
     }
@@ -65,16 +65,6 @@ public class AdminController {
     //TODO change this !!!!
     @PutMapping("delete_employee")
     public ResponseEntity<?> deleteEmployee(@RequestBody User user) {
-        User doUserExist = adminService.findUserByEmail(user.getEmail());
-
-        if(doUserExist != null) {
-            //TODO error
-            System.out.println("exists");
-            return ResponseEntity.status(500).build();
-        }else {
-            //adminService.deleteEmployee(user);
-            adminService.fin
             return ResponseEntity.ok('1');
-        }
     }
 }

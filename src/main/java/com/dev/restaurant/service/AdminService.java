@@ -28,13 +28,6 @@ public class AdminService {
         this.orderDao = orderDao;
     }
 
-    public List<Dish> getAllDishes() {
-
-        List<Dish> dishes = new ArrayList<>();
-        dishDao.findAll().iterator().forEachRemaining(dishes::add);
-        return dishes;
-    }
-
     public List<User> getAllEmployees() {
 
         List<User> users = new ArrayList<>();
@@ -68,10 +61,14 @@ public class AdminService {
 
     //TODO change this !!!!
     public void deleteEmployee(int id) {
-        System.out.println(id);
-        Optional<User> doUserExists = userDao.findById(id);
-        doUserExists
-        userDao.delete(user);
     }
+
+    public List<Dish> getAllDishes() {
+
+        List<Dish> dishes = new ArrayList<>();
+        dishDao.findAll().iterator().forEachRemaining(dishes::add);
+        return dishes;
+    }
+
 }
 
