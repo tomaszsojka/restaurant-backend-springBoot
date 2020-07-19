@@ -3,14 +3,10 @@ package com.dev.restaurant.dao;
 import com.dev.restaurant.model.Dish;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.Optional;
+
 
 public interface DishDao extends CrudRepository<Dish, Integer> {
-    /*int insertDish(UUID id, Dish dish);
-    default int insertDish(Dish dish) {
-        UUID id = UUID.randomUUID();
-        return  insertDish(id, dish);
-    }
 
-    List<Dish> selectAllDishes();
-    */
+    Optional<Dish> findByName(String name);
 }

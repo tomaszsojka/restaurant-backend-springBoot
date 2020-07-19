@@ -6,7 +6,6 @@ import com.dev.restaurant.dao.UserDao;
 import com.dev.restaurant.model.Dish;
 import com.dev.restaurant.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.net.SocketOption;
@@ -22,7 +21,7 @@ public class AdminService {
     private final OrderDao orderDao;
 
     @Autowired
-    public AdminService( DishDao dishDao, UserDao userDao, @Qualifier("fakeOrderDao")OrderDao orderDao) {
+    public AdminService( DishDao dishDao, UserDao userDao, OrderDao orderDao) {
         this.dishDao = dishDao;
         this.userDao = userDao;
         this.orderDao = orderDao;
@@ -34,8 +33,6 @@ public class AdminService {
         users.addAll(userDao.findAllByRole("chef"));
         users.addAll(userDao.findAllByRole("waiter"));
         System.out.println(users);
-
-        //userDao.findAll().iterator().forEachRemaining(users::add);
 
         return users;
     }
@@ -63,6 +60,11 @@ public class AdminService {
     public void deleteEmployee(int id) {
     }
 
+
+    public Dish findDishByName(String name) {
+        return dishDao.findByName(name).orElse(null);
+    }
+
     public List<Dish> getAllDishes() {
 
         List<Dish> dishes = new ArrayList<>();
@@ -70,5 +72,24 @@ public class AdminService {
         return dishes;
     }
 
+    public int addBreakfast( Dish dish) {
+        dish.setType("breakfast");
+        dishDao.save(dish);
+        //TODO add exceptions, return result
+        return 1;
+    }
+
+    public int addDinner( Dish dish) {
+        dish.setType("dinner");
+        dishDao.save(dish);
+        //TODO add exceptions, return result
+        return 1;
+    }
+    public int addAppetizer( Dish dish) {
+        dish.setType("appetizer");
+        dishDao.save(dish);
+        //TODO add exceptions, return result
+        return 1;
+    }
 }
 

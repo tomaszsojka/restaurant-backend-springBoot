@@ -67,4 +67,46 @@ public class AdminController {
     public ResponseEntity<?> deleteEmployee(@RequestBody User user) {
             return ResponseEntity.ok('1');
     }
+
+    @PostMapping("add_breakfast")
+    public ResponseEntity<?> addBreakfast(@RequestBody Dish dish) {
+        Dish doDishExist = adminService.findDishByName(dish.getName());
+        System.out.println(doDishExist);
+        if(doDishExist != null) {
+            //TODO error
+            System.out.println("exists");
+            return ResponseEntity.status(401).build();
+        }else {
+            adminService.addBreakfast(dish);
+            return ResponseEntity.ok('1');
+        }
+    }
+
+    @PostMapping("add_dinner")
+    public ResponseEntity<?> addDinner(@RequestBody Dish dish) {
+        Dish doDishExist = adminService.findDishByName(dish.getName());
+
+        if(doDishExist != null) {
+            //TODO error
+            System.out.println("exists");
+            return ResponseEntity.status(401).build();
+        }else {
+            adminService.addDinner(dish);
+            return ResponseEntity.ok('1');
+        }
+    }
+
+    @PostMapping("add_appetizer")
+    public ResponseEntity<?> addAppetizer(@RequestBody Dish dish) {
+        Dish doDishExist = adminService.findDishByName(dish.getName());
+
+        if(doDishExist != null) {
+            //TODO error
+            System.out.println("exists");
+            return ResponseEntity.status(401).build();
+        }else {
+            adminService.addAppetizer(dish);
+            return ResponseEntity.ok('1');
+        }
+    }
 }
