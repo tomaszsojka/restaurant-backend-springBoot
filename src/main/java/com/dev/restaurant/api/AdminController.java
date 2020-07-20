@@ -1,11 +1,8 @@
 package com.dev.restaurant.api;
 
-import com.dev.restaurant.DTO.AuthenticationResponse;
 import com.dev.restaurant.model.Dish;
-import com.dev.restaurant.model.Order;
 import com.dev.restaurant.model.User;
 import com.dev.restaurant.service.AdminService;
-import com.dev.restaurant.service.GuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -62,12 +59,18 @@ public class AdminController {
         }
     }
 
-    //TODO change this !!!!
-    @PutMapping("delete_employee")
-    public ResponseEntity<?> deleteEmployee(@RequestBody User user) {
-            return ResponseEntity.ok('1');
-    }
+    @DeleteMapping("delete_employee")
+    public ResponseEntity<?> deleteEmployee(@RequestBody Long id) {
+        User doUserExist = adminService.findUserById(id);
 
+        if(doUserExist != null) {
+            adminService.deleteEmployeeById(id);
+            return ResponseEntity.ok('1');
+        }else {
+            //TODO error
+            return ResponseEntity.status(401).build();
+        }
+    }
     @PostMapping("add_breakfast")
     public ResponseEntity<?> addBreakfast(@RequestBody Dish dish) {
         Dish doDishExist = adminService.findDishByName(dish.getName());
@@ -109,4 +112,19 @@ public class AdminController {
             return ResponseEntity.ok('1');
         }
     }
+
+    @DeleteMapping("delete_dish")
+    public ResponseEntity<?> deleteDish(@RequestBody Long id) {
+        System.out.println(id);
+        Dish doDishExist = adminService.findDishById(id);
+
+        if(doDishExist != null) {
+            adminService.deleteDishById(id);
+            return ResponseEntity.ok('1');
+        }else {
+            //TODO error
+            return ResponseEntity.status(401).build();
+        }
+    }
+
 }

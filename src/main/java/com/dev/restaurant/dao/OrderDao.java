@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import javax.persistence.criteria.CriteriaBuilder;
 
-public interface OrderDao extends CrudRepository<Order, Integer> {
+public interface OrderDao extends CrudRepository<Order, Long> {
  /*   int insertOrder(UUID id, Order order);
     //insert with random id, but type set in service
     default int insertOrder(Order order) {

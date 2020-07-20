@@ -42,6 +42,10 @@ public class AdminService {
         return userDao.findByEmail(email).orElse(null);
     }
 
+    public User findUserById(Long id) {
+        return userDao.findById(id).orElse(null);
+    }
+
     public int addChef( User user) {
         user.setRole("chef");
         userDao.save(user);
@@ -56,13 +60,16 @@ public class AdminService {
         return 1;
     }
 
-    //TODO change this !!!!
-    public void deleteEmployee(int id) {
+    public void deleteEmployeeById(Long id) {
+        userDao.deleteById(id);
     }
-
 
     public Dish findDishByName(String name) {
         return dishDao.findByName(name).orElse(null);
+    }
+
+    public Dish findDishById(Long id) {
+        return dishDao.findById(id).orElse(null);
     }
 
     public List<Dish> getAllDishes() {
@@ -90,6 +97,10 @@ public class AdminService {
         dishDao.save(dish);
         //TODO add exceptions, return result
         return 1;
+    }
+
+    public void deleteDishById(Long id) {
+        dishDao.deleteById(id);
     }
 }
 
