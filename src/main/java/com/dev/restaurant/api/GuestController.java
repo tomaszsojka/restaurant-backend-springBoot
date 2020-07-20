@@ -80,8 +80,8 @@ public class GuestController {
             ResponseEntity.status(401).build();
         }
 
-        //TODO change to response (token, role)
-        return ResponseEntity.ok(new AuthenticationResponse(doUserExists.getEmail(), doUserExists.getPhoneNumber(), role));
+        //TODO change to AuthenticationResponse (token, role)
+        return ResponseEntity.ok(doUserExists);
     }
 
     @PostMapping("order")

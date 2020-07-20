@@ -28,7 +28,7 @@ public class AuthenticationResponse {
     public String toString() {
         return "AuthenticationResponse{" +
                 "email='" + email + '\'' +
-                "phoneNumber='" + phoneNumber + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", role=" + role +
                 '}';
     }
